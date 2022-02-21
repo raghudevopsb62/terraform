@@ -34,3 +34,6 @@ variable "map" {
     boolean = true
   }
 }
+
+## Variable values from tfvars
+variable "new" {}
