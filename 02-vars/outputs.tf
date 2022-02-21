@@ -13,3 +13,7 @@ output "list2" {
 output "map_string" {
   value = var.map["string"]
 }
+
+output "new" {
+  value = var.new
+}
