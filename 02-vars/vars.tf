@@ -26,3 +26,11 @@ variable "list" {
   default = ["Hello", 90, true]
 }
 # List can have values of different data types.
+
+variable "map" {
+  default = {
+    string  = "Hello",
+    number  = 100,
+    boolean = true
+  }
+}
