@@ -17,3 +17,8 @@ output "map_string" {
 output "new" {
   value = var.new
 }
+
+output "cli" {
+  value = var.cli
+}
+
