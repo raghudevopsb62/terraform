@@ -33,6 +33,9 @@ resource "aws_ec2_tag" "ec2-monitor-tag" {
 }
 
 resource "null_resource" "ansible-apply" {
+  triggers = {
+    abc = timestamp()
+  }
   provisioner "remote-exec" {
     connection {
       host     = aws_spot_instance_request.cheap_worker.private_ip
