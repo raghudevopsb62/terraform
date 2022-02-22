@@ -17,6 +17,18 @@ resource "aws_spot_instance_request" "cheap_worker" {
   tags = {
     Name = var.COMPONENT
   }
+
+  provisioner "remote-exec" {
+    connection {
+      host     = self.private_ip
+      user     = "root"
+      password = "DevOps321"
+    }
+    inline = [
+      "ansible-pull -U https://github.com/raghudevopsb62/ansible roboshop-pull.yml -e COMPONENT=${var.COMPONENT} -e ENV=dev"
+    ]
+  }
+
 }
 
 resource "aws_ec2_tag" "ec2-name-tag" {
