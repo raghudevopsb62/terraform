@@ -25,7 +25,12 @@ variable "COMP" {
   ]
 }
 
-output "comp_name" {
+resource "null_resource" "null" {
   count = length(var.COMP)
-  value = element(var.COMP, count.index)
+  triggers = {
+    abc = timestamp()
+  }
+  provisioner "local-exec" {
+    command = "Component Name = ${element(var.COMP, count.index)}"
+  }
 }
