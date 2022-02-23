@@ -1,6 +1,12 @@
+//variable "COMP" {
+//  default = ["frontend", "cart"]
+//  type    = set(string)
+//}
+
 variable "COMP" {
-  default = ["frontend", "cart"]
-  type    = set(string)
+  default = {
+    name = "frontend"
+  }
 }
 
 resource "null_resource" "null" {
