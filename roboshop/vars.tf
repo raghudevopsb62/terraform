@@ -10,3 +10,21 @@ variable "MONITOR" {
   default = ["yes", "yes", "yes", "no", "no", "yes", "no", "no", "yes", "yes"]
 }
 
+variable "COMP" {
+  default = [
+    {
+      name    = "frontend"
+      port    = 80
+      monitor = "yes"
+    },
+    {
+      name    = "catalogue"
+      port    = 8080
+      monitor = "yes"
+    }
+  ]
+}
+
+output "comp_name" {
+  value = element(var.COMP, count.index)
+}
