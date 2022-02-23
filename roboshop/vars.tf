@@ -26,11 +26,11 @@ variable "COMP" {
 }
 
 resource "null_resource" "null" {
-  count = length(var.COMP)
+  for_each = var.COMP
   triggers = {
     abc = timestamp()
   }
   provisioner "local-exec" {
-    command = "Component Name = ${element(var.COMP, count.index)}"
+    command = "Component Name = ${each.value["name"]}"
   }
 }
