@@ -1,6 +1,6 @@
 resource "aws_security_group" "allow_app" {
-  name        = "allow_${var.COMPONENT}"
-  description = "Allow inbound for ${var.COMPONENT} Component"
+  name        = "allow_${var.COMPONENT["name"]}"
+  description = "Allow inbound for ${var.COMPONENT["name"]} Component"
 
   ingress {
     description = "TLS from VPC"
