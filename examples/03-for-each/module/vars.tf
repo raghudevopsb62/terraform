@@ -8,7 +8,7 @@ resource "null_resource" "null" {
     abc = timestamp()
   }
   provisioner "local-exec" {
-    command = "Component Name = ${var.comp["name"]}"
+    command = "echo Component Name = ${var.comp["name"]}"
   }
 }
 
