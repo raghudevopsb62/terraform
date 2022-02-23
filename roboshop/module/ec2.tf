@@ -29,7 +29,7 @@ resource "aws_ec2_tag" "ec2-name-tag" {
 resource "aws_ec2_tag" "ec2-monitor-tag" {
   resource_id = aws_spot_instance_request.cheap_worker.spot_instance_id
   key         = "Monitor"
-  value       = var.MONITOR["monitor"]
+  value       = var.COMPONENT["monitor"]
 }
 
 resource "null_resource" "ansible-apply" {
