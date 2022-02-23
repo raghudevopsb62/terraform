@@ -26,7 +26,7 @@ resource "null_resource" "null" {
     abc = timestamp()
   }
   provisioner "local-exec" {
-    command = "echo Component Name = ${each.value.name}"
+    command = "echo Component Name = ${each.value.name}, Port = ${each.value.port}"
   }
 }
 
