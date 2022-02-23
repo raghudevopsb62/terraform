@@ -26,5 +26,6 @@ variable "COMP" {
 }
 
 output "comp_name" {
-  value = element(var.COMP, 0)
+  count = length(var.COMP)
+  value = element(var.COMP, count.index)
 }
