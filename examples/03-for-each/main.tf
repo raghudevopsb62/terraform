@@ -4,13 +4,24 @@
 //}
 
 variable "COMP" {
-  default = {
-    name = "frontend"
-  }
+  default = [
+    {
+      name = "frontend"
+      port = 80
+    },
+    {
+      name = "cart"
+      port = 8080
+    }
+  ]
 }
 
 resource "null_resource" "null" {
-  for_each = var.COMP
+  #for_each = var.COMP
+  for_each = {
+    for index, comp in var.COMP :
+    index => comp
+  }
   triggers = {
     abc = timestamp()
   }
