@@ -1,4 +1,4 @@
 hello:
-	echo Hello
+	@echo Hello
 bye:
-	echo Bye
+	@echo Bye
